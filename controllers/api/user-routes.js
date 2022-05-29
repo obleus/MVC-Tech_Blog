@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 
+// get all users
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
@@ -69,7 +70,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-   
+    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     User.findOne({
         where: {
             username: req.body.username
@@ -139,7 +140,9 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-    
+    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+
+    // pass in req.body instead to only update what's passed through
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -178,4 +181,4 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-
+module.exports = router;
