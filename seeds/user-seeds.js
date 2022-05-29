@@ -10,12 +10,12 @@ const userdata = [
     {
         username: 'bleuso',
         email: 'bleus.odney@yahoo.com',
-        password: 'password123'
+        password: 'password1234'
     },
     {
         username: 'obleus561',
         email: 'ctc33463@yahoo.com',
-        password: 'password123'
+        password: 'password12345'
     }
 ];
 
