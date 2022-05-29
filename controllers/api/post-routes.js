@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
         attributes: [
             'id',
             'title',
+            'description',
             'created_at',
         ],
         include: [
@@ -42,6 +43,7 @@ router.get('/:id', (req, res) => {
         attributes: [
             'id',
             'title',
+            'description',
             'created_at',
         ],
         include: [
@@ -75,6 +77,7 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
+        description: req.body.description,
         user_id: req.session.user_id
     })
         .then(dbPostData => res.json(dbPostData))
