@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Comment,} = require('../../models');
-
+const { User, Post, Comment } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -22,7 +21,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Post,
-                attributes: ['id', 'title','created_at']
+                attributes: ['id', 'title', 'created_at']
             },
             {
                 model: Comment,
@@ -31,7 +30,6 @@ router.get('/:id', (req, res) => {
                     model: Post,
                     attributes: ['title']
                 }
-
             }
         ]
     })
@@ -49,6 +47,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -70,6 +69,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+   
     User.findOne({
         where: {
             username: req.body.username
@@ -98,6 +98,7 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
+    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
     var newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -138,7 +139,7 @@ router.post('/logout', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-   
+    
     User.update(req.body, {
         individualHooks: true,
         where: {
@@ -177,4 +178,4 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-module.exports = router;
+

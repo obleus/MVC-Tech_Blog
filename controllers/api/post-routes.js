@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment,} = require('../../models');
+const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+// get all users
 router.get('/', (req, res) => {
     console.log('======================');
     Post.findAll({
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
             'id',
             'title',
             'description',
-            'created_at',
+            'created_at'
         ],
         include: [
             {
@@ -75,6 +75,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
+    // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
     Post.create({
         title: req.body.title,
         description: req.body.description,
