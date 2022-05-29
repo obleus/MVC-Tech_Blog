@@ -8,6 +8,7 @@
     margin: 0;
     font-family: sans-serif;
     color: #333;
+    background-color: rgb(190, 213, 190);
   }
   
   nav {
@@ -43,6 +44,18 @@
     color: rgb(168, 179, 168);
   }
 
+  #submit {
+    border: grey;
+    background-color: grey;
+    color: rgba(222, 213, 213, 0.872);
+    width: 100%;
+    margin: 5px;
+  } 
+
+  #signup-instead {
+    color: rgb(235, 225, 225);
+  }
+
   button:not(.logout) {
     background-color: rgb(190, 213, 190);
     border: 0;
@@ -61,12 +74,14 @@
   .post-list {
     margin: 0;
     padding: 0;
+    list-style-type: none;
   }
 
   textarea, input {
-    padding: .5%;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    width: 100%;
   }
 
   textarea:focus, input:focus {
@@ -77,6 +92,17 @@
   textarea {
     min-width: 40%;
     min-height: 100px;
+  }
+  .form-box {
+    border: solid;
+    padding: 10px;
+  }
+
+  h2 {
+    background-color: rgb(41, 23, 23);
+    color: rgb(190, 213, 190);
+    padding: 10px;
+    margin: 0;
   }
 
   form > div {
@@ -118,6 +144,10 @@
 
   .delete-post-btn:hover {
     background-color: #ff643d;
+  }
+
+  ul {
+    list-style-type: none;
   }
 
   .post {
